@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:stacking_game_1/button.dart';
+import 'package:stacking_game_1/pixel.dart';
 
 class homePage extends StatefulWidget {
   const homePage({super.key});
@@ -18,20 +20,36 @@ class _homePageState extends State<homePage> {
       body: Column(
         children: [
           Expanded(
-            flex: 4,
+            flex: 5,
             child: GridView.builder(
                 itemCount: numberOfSquares,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 10),
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
+                  return MyPixel(
                     color: Colors.black,
                   );
                 }),
           ),
           Expanded(
             child: Container(
-              color: Colors.red,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Mybutton(
+                    child: Text(
+                      "P L A Y",
+                      style: TextStyle(color: Colors.white, fontSize: 30),
+                    ),
+                  ),
+                  Mybutton(
+                    child: Text(
+                      "S T O P",
+                      style: TextStyle(color: Colors.white, fontSize: 30),
+                    ),
+                  )
+                ],
+              ),
             ),
           )
         ],
